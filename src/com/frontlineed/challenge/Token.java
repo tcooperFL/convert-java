@@ -46,7 +46,7 @@ class Token implements Comparable<Token> {
                 result.add(new Token(tok, depth));
             }
         }
-        assert (depth == 0) : "Unclosed parentheses";
+        assert (depth == 0) : (depth > 0) ? "Unclosed parentheses" : "Too many close parentheses";
 
         return result;
     }
