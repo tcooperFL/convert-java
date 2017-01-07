@@ -28,4 +28,4 @@ Create an executable jar out of the compiled class file folder, specifying the m
 Run the executable jar file. The ``-ea`` option turns on assertion checking.
 If you leave out that option the assertions will be ignored.
 
-```java -ea -jar conver-java.jar```
+```java -ea -jar convert-java.jar```
