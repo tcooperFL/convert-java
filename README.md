@@ -7,7 +7,7 @@ Bonus problem:
 Output the lines in word-sorted order.
 
 Author: Tom Cooper
-Date: 2017-01-06
+Date: 2017-02-10
 
 ## Prerequisites
 
@@ -55,15 +55,15 @@ Original order:
 a
 b
 - foo
----- deep
----- stuff
+-- deep stuff
 c
+
 
 Sorted order:
 a
 b
-c
----- deep
 - foo
----- stuff
+-- deep stuff
+c
+
 ```
