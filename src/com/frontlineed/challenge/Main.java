@@ -6,12 +6,13 @@
  */
 package com.frontlineed.challenge;
 
-import java.util.List;
+import com.frontlineed.challenge.ast.AstFactory;
+import com.frontlineed.challenge.ast.AstNode;
 
 public class Main {
 
     /** The given challenge string */
-    private static String DEFAULT_INPUT =
+    private static final String DEFAULT_INPUT =
             "(id,created,employee(id,firstname,employeeType(id), lastname),location)";
 
     /**
@@ -21,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         // Allow user to provide other test cases on the command line.
         if (args.length > 1) {
-            System.err.printf("Please provide a single quoted string argument.\n", args[0]);
+            System.err.printf("Please provide a single quoted string argument.\n");
             System.exit(1);
 
         } else {
@@ -43,15 +44,15 @@ public class Main {
      * @param line input string to parse
      */
     private static void convert(String line) {
-        List<Token> result = Token.parse(line);
+        AstNode root = AstFactory.INSTANCE.create(line);
 
         // Original problem
         System.out.println("Original order:");
-        result.forEach(System.out::println);
+        System.out.println(root.toString());
 
         // Bonus solution
         System.out.println("\nSorted order:");
-        result.stream().sorted().forEach(System.out::println);
+        System.out.println(root.toString(true));
     }
 
 }
