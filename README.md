@@ -45,7 +45,7 @@ This demonstrates the given example. Test it on your own strings by giving it
 a string argument.
 
 ```
-java -ea -jar convert-java.jar "(a,b(foo(((deep stuff)))), c)"
+java -ea -jar convert-java.jar "(a,c(foo(y, x)), b)"
 ```
 
 Output:
@@ -53,17 +53,18 @@ Output:
 ```
 Original order:
 a
-b
-- foo
--- deep stuff
 c
+- foo
+-- y
+-- x
+b
 
 
 Sorted order:
 a
 b
-- foo
--- deep stuff
 c
-
+- foo
+-- x
+-- y
 ```
