@@ -53,6 +53,11 @@ public class AstNode implements Comparable<AstNode> {
         return toString(false);
     }
 
+    /**
+     * Produce a formatted string from this node and its descendants.
+     * @param sorted If true, sort the child nodes at each level.
+     * @return formatted string form with child nodes sorted
+     */
     public String toString(boolean sorted) {
         StringBuilder result = new StringBuilder();
         buildString(result, sorted);
