@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.frontlineed.challenge.ast;
 
 import static org.junit.Assert.*;
