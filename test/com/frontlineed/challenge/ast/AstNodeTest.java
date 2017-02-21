@@ -27,7 +27,7 @@ public class AstNodeTest {
 	}
 
 	@Test
-	/** Test output with one child */
+	/** Test output with multiple children */
 	public void testWithChildren() {
 		AstNode parent = new AstNode();
 		new AstNode("child2", parent);
@@ -37,7 +37,7 @@ public class AstNodeTest {
 	}
 
 	@Test
-	/** Test output with one child */
+	/** Test output with 2 levels */
 	public void testWithDepth() {
 		AstNode parent = new AstNode();
 		AstNode child2 = new AstNode("child2", parent);
@@ -49,7 +49,7 @@ public class AstNodeTest {
 	}
 
 	@Test
-	/** Test output with one child */
+	/** Test output with deeper nesting showing indents */
 	public void testDeep() {
 		AstNode parent = new AstNode();
 		AstNode child2 = new AstNode("child2", parent);
