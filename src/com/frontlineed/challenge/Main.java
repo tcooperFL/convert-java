@@ -9,11 +9,15 @@ package com.frontlineed.challenge;
 import com.frontlineed.challenge.ast.AstFactory;
 import com.frontlineed.challenge.ast.AstNode;
 
-public class Main {
+public final class Main {
 
     /** The given challenge string */
     private static final String DEFAULT_INPUT =
             "(id,created,employee(id,firstname,employeeType(id), lastname),location)";
+    /**
+     * Private constructor prevents instantiation
+     */
+    private Main() {}
 
     /**
      * Main program. Demonstrates parsing of the input string, or default challenge string.
@@ -22,7 +26,7 @@ public class Main {
     public static void main(String[] args) {
         // Allow user to provide other test cases on the command line.
         if (args.length > 1) {
-            System.err.printf("Please provide a single quoted string argument.\n");
+            System.err.println("Please provide a single quoted string argument.");
             System.exit(1);
 
         } else {
@@ -32,7 +36,7 @@ public class Main {
             try {
                 convert(string);
             } catch (AssertionError error) {
-                System.err.printf("Conversion failed: %s\n", error.getMessage());
+                System.err.printf("Conversion failed: %s%n", error.getMessage());
                 System.exit(1);
             }
         }

@@ -12,9 +12,9 @@ public class AstNode implements Comparable<AstNode> {
     /** When indented output starts, according to the requirements */
     private static final int INDENTATION_THRESHOLD = 2;
 
-    private String name;
-    private List<AstNode> children = new ArrayList<>();
-    private int depth;
+    private final String name;
+    private final List<AstNode> children = new ArrayList<>();
+    private final int depth;
 
     /**
      * Root constructor.
@@ -49,6 +49,7 @@ public class AstNode implements Comparable<AstNode> {
      * Override toString for simple depth-formatted value
      * @return natural formatted string form for a AstNode
      */
+    @Override
     public String toString() {
         return toString(false);
     }
@@ -87,9 +88,7 @@ public class AstNode implements Comparable<AstNode> {
         if (sorted) {
             childStream = childStream.sorted();
         }
-        childStream.forEach((c) -> {
-            c.buildString(builder, sorted);
-        });
+        childStream.forEach(c -> c.buildString(builder, sorted));
     }
 
     /**
@@ -97,8 +96,21 @@ public class AstNode implements Comparable<AstNode> {
      * @param other The other AstNode
      * @return Comparison based on their names.
      */
+    @Override
     public int compareTo(AstNode other) {
-        return this.name.compareTo(other.name);
+    	int result = 0;
+    	
+    	// Take into account either could have a null name.
+    	if (this.name == null) {
+    		if (other.name != null) {
+    			result = -1;
+    		}
+    	} else if (other.name == null) {
+    		result = 1;
+    	} else {
+    		result = this.name.compareTo(other.name);
+    	}
+        return result;
     }
 
 }
